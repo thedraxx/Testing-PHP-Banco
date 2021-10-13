@@ -14,11 +14,9 @@ abstract class Empleado
     )
     {
         //Si algún parámetro falta, lanza una excepción:
-        if (
-            empty($nombre) || empty($apellido) || 
-            empty($dni) || (int) $dni === 0 ||
-            empty($salario)
-        ) {
+        if (empty($nombre) || empty($apellido) || empty($dni) || (int) $dni === 0 ||
+            empty($salario)) 
+        {
             throw new \Exception();
         }
         else {
