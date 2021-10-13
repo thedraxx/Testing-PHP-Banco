@@ -13,6 +13,10 @@ abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
       $c = $this->crear("");
    }
 
-   
+   public function testSePuedeCrearApellidoVacio()
+   {
+      $this->expectException(\Exception::class);
+      $c = $this->crear("Juan","");
+   }
    
 }
