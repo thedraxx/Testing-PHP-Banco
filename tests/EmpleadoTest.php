@@ -22,13 +22,13 @@ abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
    public function testSePuedeCrearDniVacio()
    {
       $this->expectException(\Exception::class);
-      $c = $this->crear("Juan","alberto","");
+      $c = $this->crear("Juan","alberto",empty($dni));
    }
 
    public function testSePuedeCrearSalarioVacio()
    {
       $this->expectException(\Exception::class);
-      $c = $this->crear("Juan","alberto",1234567,"");
+      $c = $this->crear("Juan","alberto",1234567,empty($salario));
    }
 
    public function testSePuedeCrearDNIConCaracteresNoNumericos()

@@ -15,10 +15,11 @@ abstract class Empleado
     {
         //Si algún parámetro falta, lanza una excepción:
         if (empty($nombre) || empty($apellido) || empty($dni) || (int) $dni === 0 ||
-            empty($salario) || strval($dni) ) 
+            empty($salario) || strval($dni)) 
         {
             throw new \Exception();
         }
+       
         else {
             $this->nombre = $nombre;
             $this->apellido = $apellido;
@@ -27,8 +28,6 @@ abstract class Empleado
             $this->sector = $sector;
         }
     }
-
-
     public function getNombreApellido()
     {
         return $this->nombre . " " . $this->apellido;
@@ -46,7 +45,7 @@ abstract class Empleado
 
     public function setSector($sector) 
     {
-        $this->sector = $sector;
+         $this->sector = $sector;
     }
 
     public function getSector() 
