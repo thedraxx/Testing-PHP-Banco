@@ -24,5 +24,11 @@ abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
       $this->expectException(\Exception::class);
       $c = $this->crear("Juan","alberto","");
    }
+
+   public function testSePuedeCrearSalarioVacio()
+   {
+      $this->expectException(\Exception::class);
+      $c = $this->crear("Juan","alberto","1234567","");
+   }
    
 }
