@@ -1,9 +1,9 @@
 <?php
 abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
 {
-   public function crear($nombre="Ramon", $apellido ="alberto",$dni = 1234567, $salario = 5600)
+   public function crear($nombre="Ramon", $apellido ="alberto",$dni = 1234567, $salario = 5600,$sector = "No especificado")
     {
-       $ca = new \App\EmpleadoEventual($nombre, $apellido, $dni, $salario);
+       $ca = new \App\EmpleadoEventual($nombre, $apellido, $dni, $salario, $sector);
        return $ca;
     }
 
@@ -37,4 +37,11 @@ abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
       $c = $this->crear("Juan","alberto","1234567a");
    }
    
+   public function testAlEnviarUnSectorNoEspecificadoDevuelveMensaje()
+   {
+      $c = $this->crear();
+      $this-> assertEquals( $this->sector = $c, $c-> setSector("No especificado"));
+      $this-> assertEquals("No especificado", $c-> getSector());
+   }
+
 }

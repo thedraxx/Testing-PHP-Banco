@@ -50,7 +50,11 @@ abstract class Empleado
 
     public function getSector() 
     {
+        if ($this->sector === "No especificado") {
+            return  "No especificado";
+        }
         return $this->sector;
+        
     }
 
     //Si se intenta convertir al objeto Empleado en cadena, php busca el método 
