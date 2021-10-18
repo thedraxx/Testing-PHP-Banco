@@ -43,18 +43,19 @@ abstract class Empleado
         return $this->salario;
     }
 
-    public function setSector($sector) 
+    public function setSector($sector) // lo setea
     {
-         $this->sector = $sector;
+        $this->sector = $sector;
     }
 
-    public function getSector() 
+    public function getSector() //obtiene el sector 
     {
-        if ($this->sector === "No especificado") {
-            return  "No especificado";
+        if ($this->sector = "No especificado") {
+            return "No especificado";
         }
-        return $this->sector;
-        
+        else{   
+            return $this->sector;
+        }
     }
 
     //Si se intenta convertir al objeto Empleado en cadena, php busca el método 

@@ -8,8 +8,9 @@ class EmpleadoEventual extends Empleado
     protected $montosDeVentas = Array();
 
     //El constructor recibe los datos y el array de ventas:
-    public function __construct($nombre, $apellido, $dni, $salario, $sector , Array $montos = [])
+    public function __construct( $nombre, $apellido, $dni, $salario, $sector, Array $montos = [])
     {
+
         //Si alguno de los elementos del array no es positivo, se lanza una 
         //excepción:
         foreach ($montos as $unMonto) {
