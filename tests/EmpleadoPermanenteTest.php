@@ -16,5 +16,10 @@ class EmpleadoEventualTest extends EmpleadoTest
     $this -> assertEquals(10, $r ->calcularantiguedad());
     return $this->$salario + $this->$salario * $this->calcularAntiguedad() / 100;
     }
+
+    public function testcalcularAntiguedad(fechaingreso = 2010/07/10) {
+        $r = $this->fechaIngreso->diff(new \DateTime()); 
+        return $r;
+    }
    
 }
