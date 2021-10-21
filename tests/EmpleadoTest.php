@@ -39,9 +39,9 @@ abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
    
    public function testAlEnviarUnSectorNoEspecificadoDevuelveMensaje()
    {
-      $c = $this->crear();
-      $this-> assertEquals("No especificado", $c-> setSector("No especificado"));
-      $this-> assertEquals("No especificado", $c-> getSector());
+         $c = $this->crear();
+         $this-> assertEquals("No especificado", $c-> setSector("No especificado"));
+         $this-> assertEquals("No especificado", $c-> getSector());
    }
 
 }
