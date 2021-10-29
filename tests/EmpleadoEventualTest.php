@@ -24,5 +24,12 @@ class EmpleadoEventualTest extends EmpleadoTest
        $c = $this->crearEmpleadoEventual("Ramon", "alberto", 1234567, 5600, [1000, 0]);
     }
 
+    // Test: Se crea un Constructor con Venta negativa
+    public function testCalcularConstructConVentaNeg()
+    {
+        $this->expectException(\Exception::class);
+        $c = $this->crearEmpleadoEventual("Ramon", "alberto", 1234567, 5600, [-100, 1000]);
+    }
+
 }
 ?>
