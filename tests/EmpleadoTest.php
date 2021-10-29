@@ -1,13 +1,14 @@
 <?php
+   //Test EmpleadoEventualTest
 abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
 {
-   public function crearEmpleadoEventual($nombre="Ramon", $apellido ="alberto",$dni = 1234567, $salario = 5600)
+   public function crearEmpleadoEventual($nombre="Ramon", $apellido ="alberto",$dni = 1234567, $salario = 5600, $montos = [1000, 1000])
     {
-       $c = new \App\EmpleadoEventual($nombre, $apellido, $dni, $salario);
+       $c = new \App\EmpleadoEventual($nombre, $apellido, $dni, $salario,$montos);
        return $c;
     }
 
-    // Test: si intento construir un empleado con el nombre vacío, lanza excepción.
+   // Test: si intento construir un empleado con el nombre vacío, lanza excepción.
    public function testSePuedeCrearNombreVacio()
    {
       $this->expectException(\Exception::class);
@@ -43,7 +44,7 @@ abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
    }
 
    //Test: al construir un empleado si no se especifica el sector, el método getSector devolvera la cadena “No especificado”.
-   public function testInitGetSector()
+   public function testGetSector()
    {
       $e = $this->crearEmpleadoEventual();
       $this->assertEquals("No especificado", $e->getSector());
