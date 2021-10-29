@@ -5,9 +5,19 @@ class EmpleadoEventualTest extends EmpleadoTest
     // Test: Se calcula comision. 
     public function testSeCalculaComision()
     {
-        $e = $this->crearEmpleadoEventual();
+        $c = $this->crearEmpleadoEventual();
         // El 5% de cada monto dividido la cantidad de montos (ventas)
-        $this->assertEquals((2000/2) * 0.05, $e->calcularComision());
+        $this->assertEquals((2000/2) * 0.05, $c->calcularComision());
     }
+
+    // Test: Se calcula Ingreso Total. 
+    public function testCalculaIngresoTotal()
+    {
+        $c = $this->crearEmpleadoEventual();
+        $this->assertEquals($c->getSalario() + $c->calcularComision(), $c->calcularIngresoTotal());
+    }
+
+ 
+    
 }
 ?>
