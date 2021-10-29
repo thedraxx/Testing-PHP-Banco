@@ -14,12 +14,13 @@ abstract class Empleado
     )
     {
         //Si algún parámetro falta, lanza una excepción:
-        if (empty($nombre) || empty($apellido) || empty($dni) || (int) $dni === 0 ||
-            empty($salario) || strval($dni)) 
-        {
+        if (
+            empty($nombre) || empty($apellido) || 
+            empty($dni) || (int) $dni === 0 ||
+            empty($salario) || !ctype_digit($dni)
+        ) {
             throw new \Exception();
         }
-       
         else {
             $this->nombre = $nombre;
             $this->apellido = $apellido;
@@ -28,6 +29,7 @@ abstract class Empleado
             $this->sector = $sector;
         }
     }
+
     public function getNombreApellido()
     {
         return $this->nombre . " " . $this->apellido;
@@ -43,19 +45,14 @@ abstract class Empleado
         return $this->salario;
     }
 
-    public function setSector($sector) // lo setea
+    public function setSector($sector) 
     {
         $this->sector = $sector;
     }
 
-    public function getSector() //obtiene el sector 
+    public function getSector() 
     {
-        if ($this->sector = "No especificado") {
-            return "No especificado";
-        }
-        else{   
-            return $this->sector;
-        }
+        return $this->sector;
     }
 
     //Si se intenta convertir al objeto Empleado en cadena, php busca el método 

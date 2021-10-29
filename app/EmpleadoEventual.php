@@ -8,7 +8,7 @@ class EmpleadoEventual extends Empleado
     protected $montosDeVentas = Array();
 
     //El constructor recibe los datos y el array de ventas:
-    public function __construct( $nombre, $apellido, $dni, $salario, $sector, Array $montos = [])
+    public function __construct( $nombre, $apellido, $dni, $salario, Array $montos = [])
     {
 
         //Si alguno de los elementos del array no es positivo, se lanza una 
@@ -20,7 +20,7 @@ class EmpleadoEventual extends Empleado
         }
 
         //Se invoca al constructor de la superclase Empleado:
-        parent::__construct($nombre, $apellido, $dni, $salario,$sector);
+        parent::__construct($nombre, $apellido, $dni, $salario);
         //Y luego se asigna el array completo a la la propiedad:
         $this->montosDeVentas = $montos;
     }

@@ -1,47 +1,54 @@
 <?php
 abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
 {
-   public function crear($nombre="Ramon", $apellido ="alberto",$dni = 1234567, $salario = 5600,$sector = "No especificado")
+   public function crearEmpleadoEventual($nombre="Ramon", $apellido ="alberto",$dni = 1234567, $salario = 5600)
     {
-       $ca = new \App\EmpleadoEventual($nombre, $apellido, $dni, $salario,$sector);
-       return $ca;
+       $c = new \App\EmpleadoEventual($nombre, $apellido, $dni, $salario);
+       return $c;
     }
 
+    // Test: si intento construir un empleado con el nombre vacío, lanza excepción.
    public function testSePuedeCrearNombreVacio()
    {
       $this->expectException(\Exception::class);
-      $this->crear("");
+      $this->crearEmpleadoEventual("");
    }
 
+   // Test: si intento construir un empleado con el apellido vacío, lanza excepción.
    public function testSePuedeCrearApellidoVacio()
    {
       $this->expectException(\Exception::class);
-      $this->crear("Juan","");
+      $this->crearEmpleadoEventual("Juan","");
    }
 
+   // Test: si intento construir un empleado con el nombre vacío, lanza una excepción.
    public function testSePuedeCrearDniVacio()
    {
       $this->expectException(\Exception::class);
-      $this->crear("Juan","alberto",empty($dni));
+      $this->crearEmpleadoEventual("Juan","alberto",empty($dni));
    }
 
+   // Test: si intento construir un empleado con el salario vacío, lanza una excepción.
    public function testSePuedeCrearSalarioVacio()
    {
       $this->expectException(\Exception::class);
-      $this->crear("Juan","alberto",1234567,empty($salario));
+      $this->crearEmpleadoEventual("Juan","alberto",1234567,"");
    }
 
+   // Test: si intento construir un empleado con el DNI vacío, lanza una excepción.
    public function testSePuedeCrearDNIConCaracteresNoNumericos()
    {
       $this->expectException(\Exception::class);
-      $this->crear("Juan","alberto","1234567a");
-   }
-   
-   public function testAlEnviarUnSectorNoEspecificadoDevuelveMensaje()
-   {
-         $c = $this->crear();
-         $this-> assertEquals("No especificado", $c-> setSector("No especificado"));
-         $this-> assertEquals("No especificado", $c-> getSector());
+      $this->crearEmpleadoEventual("Juan","alberto","1234567a");
    }
 
+   //Test: al construir un empleado si no se especifica el sector, el método getSector devolvera la cadena “No especificado”.
+   public function testInitGetSector()
+   {
+      $e = $this->crearEmpleadoEventual();
+      $this->assertEquals("No especificado", $e->getSector());
+      $p = $this->crearEmpleadoEventual();
+      $this->assertEquals("No especificado", $p->getSector());
+   }
 }
+?>
