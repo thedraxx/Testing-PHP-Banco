@@ -17,7 +17,12 @@ class EmpleadoEventualTest extends EmpleadoTest
         $this->assertEquals($c->getSalario() + $c->calcularComision(), $c->calcularIngresoTotal());
     }
 
- 
-    
+    // Test: Se crea un Constructor con Venta = 0. 
+    public function testCalculaConstructConVenta0()
+    {
+       $this->expectException(\Exception::class);
+       $c = $this->crearEmpleadoEventual("Ramon", "alberto", 1234567, 5600, [1000, 0]);
+    }
+
 }
 ?>
