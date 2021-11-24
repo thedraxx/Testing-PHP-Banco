@@ -35,7 +35,7 @@ El proyecto ya se encuentra con la capacidad de hacer el Testing automatico devi
 
 ## 🤝 Contribuciones y Agradecimientos
 
-Agradezco a Juan Herrera, tutor y responsable de que haya sido capaz de generar esto, tambien a las personas que me dieron una mano 
+Agradezco a Juan Marquez, tutor y responsable de que haya sido capaz de generar esto, tambien a mi colaborador con esto Tomas Guida
 
 ## 📝 Licencia
 
